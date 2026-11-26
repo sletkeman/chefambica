@@ -1,0 +1,90 @@
+---
+import '../../styles.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chef Ambica — seasonal, soulful food." />
+    <title>Chef Ambica — Seasonal, soulful food</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Chef Ambica home">Chef Ambica<span>.</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Open navigation</span><span></span><span></span>
+      </button>
+      <nav id="primary-navigation" aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#table">At the table</a><a href="#experience">Experience</a>
+        <a class="nav-contact" href="#contact">Work together <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Chef · Bangalore, India</p>
+          <h1 id="hero-title">Food made with <em>feeling.</em></h1>
+          <p class="intro">Thoughtful, ingredient-led cooking for intimate tables, spirited gatherings, and everything worth celebrating.</p>
+          <a class="text-link" href="#about">Discover my kitchen <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85" alt="Chef preparing food in a sunlit kitchen" />
+          <p class="image-caption">In the kitchen, 2026</p>
+        </div>
+        <p class="hero-note">Seasonal<br />&amp; soulful</p>
+      </section>
+
+      <section class="statement" id="about" aria-labelledby="statement-title">
+        <p class="eyebrow">A little introduction</p>
+        <h2 id="statement-title">The best meals feel like a <em>memory</em> in the making.</h2>
+        <div class="statement-bottom">
+          <p>I’m Ambica: a chef drawn to the brightness of Indian produce, unhurried techniques, and meals that bring people closer. My cooking is generous, quietly playful, and always made to be shared.</p>
+          <a class="text-link" href="#experience">My story <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="table" id="table" aria-labelledby="table-title">
+        <div class="section-heading"><p class="eyebrow">From my table</p><h2 id="table-title">A taste of what I make.</h2></div>
+        <div class="dish-grid">
+          <article class="dish dish-large"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Colourful seasonal vegetable dish" /><div><p>01</p><h3>Vegetable-forward feasts</h3></div></article>
+          <article class="dish dish-small"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=85" alt="Dinner table filled with shared dishes" /><div><p>02</p><h3>Tables made for sharing</h3></div></article>
+          <article class="dish dish-small dish-offset"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=85" alt="Fresh produce at a market" /><div><p>03</p><h3>The season’s best ingredients</h3></div></article>
+        </div>
+      </section>
+
+      <section class="experience" id="experience" aria-labelledby="experience-title">
+        <div class="experience-image"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=85" alt="Pasta dish served on a dark plate" /></div>
+        <div class="experience-copy">
+          <p class="eyebrow">Cooking, so far</p><h2 id="experience-title">A budding career with a very full heart.</h2>
+          <dl><div><dt>Now</dt><dd>Private dining &amp; creative collaborations</dd></div><div><dt>Approach</dt><dd>Indian ingredients, global curiosity</dd></div><div><dt>Based in</dt><dd>Bangalore, available to travel</dd></div></dl>
+          <a class="text-link" href="#contact">Let’s cook something up <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow">Let's work together</p><h2 id="contact-title">Have an occasion<br />worth feeding?</h2>
+        <p>Tell me a little about it. I’d love to hear what you have in mind.</p>
+        <a class="contact-link" href="https://wa.me/919000000000?text=Hello%20Chef%20Ambica%2C%20I%27d%20love%20to%20get%20in%20touch." target="_blank" rel="noreferrer">Send a WhatsApp <span aria-hidden="true">↗</span></a>
+        <p class="contact-email">Or write to <a href="mailto:hello@chefambica.com">hello@chefambica.com</a></p>
+      </section>
+    </main>
+
+    <footer><a class="wordmark" href="#top">Chef Ambica<span>.</span></a><p>© <span id="year"></span> · Made with care</p><a href="#top">Back to top ↑</a></footer>
+    <script>
+      const menuButton = document.querySelector('.menu-button');
+      const navigation = document.querySelector('#primary-navigation');
+      menuButton?.addEventListener('click', () => {
+        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!expanded));
+      });
+      navigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => menuButton?.setAttribute('aria-expanded', 'false')));
+      document.querySelector('#year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

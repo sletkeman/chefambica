@@ -10,11 +10,13 @@ An editorial, single-page Astro chef portfolio designed for Cloudflare Pages.
 
 Use `npm run build` to make the production site in `dist/`, and `npm run preview` to view that production build locally.
 
-## Deploy with Cloudflare Pages
+## Deploy with Cloudflare Workers Builds
 
-Connect this GitHub repository to a Cloudflare Pages project. Set the build command to `npm run build` and the output directory to `dist`.
+Connect this GitHub repository to a Cloudflare Worker through the Cloudflare dashboard. Set the build command to `npm run build` and the deploy command to `npx wrangler deploy`.
 
-Cloudflare will deploy the `main` branch to production and provide preview URLs for pull requests. The GitHub Action in `.github/workflows/build.yml` independently verifies that the site builds, but does not deploy it.
+Cloudflare will deploy the `main` branch to production and provide preview deployments for other branches. The `wrangler.jsonc` file tells Cloudflare to serve Astro's built `dist/` folder as static assets.
+
+To deploy manually after authenticating with Cloudflare, run `npm run deploy`.
 
 ## Before publishing
 
